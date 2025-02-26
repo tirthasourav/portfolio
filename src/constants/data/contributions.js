@@ -1,7 +1,7 @@
 const contributions = [
-    { name: "React Native OTP Generator", link: "https://github.com/yourgithub/react-native-otp" },
-    { name: "Open Source Firebase Integration", link: "https://github.com/yourgithub/firebase-integration" },
-    { name: "React Native Windows Compatibility", link: "https://github.com/yourgithub/react-native-windows" }
+    { name: "@0101-Labs/React-Calendar", link: "https://www.npmjs.com/package/@0101-labs/react-calendar" },
+    { name: "rn-customizable-radio-button", link: "https://www.npmjs.com/package/rn-customizable-radio-button" },
+    { name: "rn-customizable-dialog", link: "https://www.npmjs.com/package/rn-customizable-dialog" }
   ];
   
   export default contributions;

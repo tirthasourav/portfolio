@@ -1,8 +1,7 @@
 const certifications = [
-    "Core Java Project-Based Training - CMC Kolkata (2014)",
-    "AWS Certified Developer Associate (Expected 2025)",  
-    "React Native Advanced Certification (In Progress)"
-  ];
-  
-  export default certifications;
-  
+  "Android Developer Training - Square & Qube, Bangalore (2016)",
+  "Core Java Training - Infocampus, Bangalore (2016)",
+  "Core Java Project-Based Training - CMC Kolkata (2014)",
+];
+
+export default certifications;

@@ -30,6 +30,7 @@ import cloudTools from "../constants/data/cloudTools";
 import devTools from "../constants/data/devTools";
 
 import profileImage from '../assets/images/sourav.png';
+import defaultValues from "@/constants/defaultValues";
 
 export default function Home() {
   return (
@@ -48,13 +49,13 @@ export default function Home() {
               <h1 className="text-2xl md:text-3xl font-extrabold text-neon">Sourav Dey</h1>
               <p className="text-sm md:text-md text-gray-300 mt-2">Software Engineer | React Native | MERN Stack</p>
               <div className="mt-4 flex justify-center gap-4 animate-bounce">
-                <a href="https://github.com/tirthasourav" target="_blank" className="text-gray-300 hover:text-neon">
+                <a href={defaultValues.github} target="_blank" className="text-gray-300 hover:text-neon">
                   <FaGithub size={24} />
                 </a>
-                <a href="https://www.linkedin.com/in/sourav-dey-92816249/" target="_blank" className="text-gray-300 hover:text-neon">
+                <a href={defaultValues.linkedin} target="_blank" className="text-gray-300 hover:text-neon">
                   <FaLinkedin size={24} />
                 </a>
-                <a href="mailto:dey.sourav777@gmail.com" className="text-gray-300 hover:text-neon">
+                <a href={`mailto:${defaultValues.email}`} className="text-gray-300 hover:text-neon">
                   <FaEnvelope size={24} />
                 </a>
               </div>
@@ -64,12 +65,37 @@ export default function Home() {
             </div>
             <div className="mt-6 p-4 bg-gray-800 rounded-lg shadow-inner">
               <h2 className="text-lg font-bold border-b border-gray-600 pb-1">Skills</h2>
-              <ul className="mt-3 text-sm text-gray-300 space-y-2">
-                <li><strong>Languages:</strong> {languages.join(", ")}</li>
-                <li><strong>Frameworks:</strong> {frameworks.join(", ")}</li>
-                <li><strong>Databases:</strong> {databases.join(", ")}</li>
-                <li><strong>Cloud & DevOps:</strong> {cloudTools.join(", ")}</li>
-                <li><strong>Development Tools:</strong> {devTools.join(", ")}</li>
+              <div className="mt-3 space-y-3">
+                {skills.map((skill, index) => (
+                  <div key={index}>
+                    <p className="text-sm font-semibold text-gray-300 flex justify-between">
+                      {skill.name} <span>{skill.rating * 20}%</span>
+                    </p>
+                    <div className="w-full bg-gray-600 rounded-full h-2.5">
+                      <div className="bg-blue-500 h-2.5 rounded-full transition-all duration-500" style={{ width: `${Math.max(skill.rating * 20, 5)}%` }}></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mt-6 p-4 bg-gray-800 rounded-lg shadow-inner">
+              <h2 className="text-lg font-bold border-b border-gray-600 pb-1">Certifications</h2>
+              <ul className="mt-3 text-sm text-gray-300 list-disc list-inside">
+                {certifications.map((cert, index) => (
+                  <li key={index}>{cert}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-6 p-4 bg-gray-800 rounded-lg shadow-inner">
+              <h2 className="text-lg font-bold border-b border-gray-600 pb-1">Open Source Contributions</h2>
+              <ul className="mt-3 text-sm text-gray-300 list-disc list-inside">
+                {contributions.map((contribution, index) => (
+                  <li key={index}>
+                    <a href={contribution.link} target="_blank" className="text-blue-400 hover:underline">
+                      {contribution.name}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </aside>
