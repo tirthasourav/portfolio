@@ -1,101 +1,118 @@
-import Image from "next/image";
+'use client';
+
+import React from "react";
+import Head from "next/head";
+import Image from 'next/image';
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaTools,
+  FaCertificate,
+  FaCode,
+  FaDatabase,
+  FaCloud,
+  FaWrench,
+  FaBriefcase,
+  FaProjectDiagram,
+} from "react-icons/fa";
+import projects from "../constants/data/projects";
+import experiences from "../constants/data/experiences";
+import skills from "../constants/data/skills";
+import techStack from "../constants/data/techstack";
+import certifications from "../constants/data/certifications";
+import contributions from "../constants/data/contributions";
+import languages from "../constants/data/languages";
+import frameworks from "../constants/data/frameworks";
+import databases from "../constants/data/databases";
+import cloudTools from "../constants/data/cloudTools";
+import devTools from "../constants/data/devTools";
+
+import profileImage from '../assets/images/sourav.png';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div>
+      <Head>
+        <title>Sourav Dey | Portfolio</title>
+      </Head>
+      <main className="bg-gray-900 text-white min-h-screen p-4 md:p-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
+          {/* Sidebar */}
+          <aside className="col-span-1 bg-gradient-to-b from-gray-900 to-gray-700 p-6 rounded-lg shadow-lg text-center relative border border-gray-600 backdrop-blur-lg">
+            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-white rounded-full overflow-hidden shadow-md border-4 border-gray-700">
+              <Image src={profileImage} alt="Profile" width={400} height={300}/>
+            </div>
+            <div className="mt-20">
+              <h1 className="text-2xl md:text-3xl font-extrabold text-neon">Sourav Dey</h1>
+              <p className="text-sm md:text-md text-gray-300 mt-2">Software Engineer | React Native | MERN Stack</p>
+              <div className="mt-4 flex justify-center gap-4 animate-bounce">
+                <a href="https://github.com/tirthasourav" target="_blank" className="text-gray-300 hover:text-neon">
+                  <FaGithub size={24} />
+                </a>
+                <a href="https://www.linkedin.com/in/sourav-dey-92816249/" target="_blank" className="text-gray-300 hover:text-neon">
+                  <FaLinkedin size={24} />
+                </a>
+                <a href="mailto:dey.sourav777@gmail.com" className="text-gray-300 hover:text-neon">
+                  <FaEnvelope size={24} />
+                </a>
+              </div>
+              <p className="text-gray-300 mt-4 flex items-center justify-center gap-2">
+                <FaMapMarkerAlt size={16} /> Jersey City, NJ
+              </p>
+            </div>
+            <div className="mt-6 p-4 bg-gray-800 rounded-lg shadow-inner">
+              <h2 className="text-lg font-bold border-b border-gray-600 pb-1">Skills</h2>
+              <ul className="mt-3 text-sm text-gray-300 space-y-2">
+                <li><strong>Languages:</strong> {languages.join(", ")}</li>
+                <li><strong>Frameworks:</strong> {frameworks.join(", ")}</li>
+                <li><strong>Databases:</strong> {databases.join(", ")}</li>
+                <li><strong>Cloud & DevOps:</strong> {cloudTools.join(", ")}</li>
+                <li><strong>Development Tools:</strong> {devTools.join(", ")}</li>
+              </ul>
+            </div>
+          </aside>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          {/* Main Content */}
+          <section className="col-span-1 md:col-span-3">
+            <div className="mb-6">
+              <h2 className="text-lg md:text-2xl font-bold border-b border-gray-600 pb-1 flex items-center gap-2"><FaBriefcase /> Experience</h2>
+              <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
+                {experiences.map((experience, index) => (
+                  <div key={index} className="bg-gray-800 p-3 rounded-lg shadow-lg text-sm md:text-base">
+                    <h3 className="text-md md:text-lg font-semibold">{experience.role} - {experience.company}</h3>
+                    <p className="text-gray-400 text-xs md:text-sm mt-1">{experience.duration}</p>
+                    <p className="text-gray-300 mt-2 text-xs md:text-sm">{experience.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <h2 className="text-lg md:text-2xl font-bold border-b border-gray-600 pb-1 flex items-center gap-2"><FaProjectDiagram /> Projects</h2>
+              <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+                {projects.map((project, index) => (
+                  <div key={index} className="bg-gray-800 p-3 rounded-lg shadow-lg text-sm md:text-base">
+                    {project.thumbnail && (
+                      <img src={project.thumbnail} alt={project.name} className="w-full h-32 object-cover rounded-md mb-2" />
+                    )}
+                    <h3 className="text-md md:text-lg font-semibold">{project.name}</h3>
+                    <p className="text-gray-400 text-xs md:text-sm mt-2">{project.description}</p>
+                    <a
+                      href={project.link}
+                      className="text-blue-400 hover:underline mt-2 inline-block"
+                      target="_blank"
+                    >
+                      View Project
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
